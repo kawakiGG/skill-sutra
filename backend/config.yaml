@@ -1,0 +1,82 @@
+app:
+  name: "Skill Sutra"
+  version: "1.0.0"
+  env: "development"
+  is_synthetic: true
+  source_label: "Skill Sutra Calibrated Intelligence Engine (Synthetic Demo Set)"
+
+weights:
+  demand_index:
+    volume: 0.40
+    growth: 0.35
+    skill_freq: 0.25
+  supply_index:
+    capacity: 0.40
+    certified: 0.35
+    completion_rate: 0.25
+  priority_score:
+    gap_severity: 0.40
+    demand_growth: 0.25
+    strategic_importance: 0.20
+    forecast_confidence: 0.15
+
+thresholds:
+  gap_classification:
+    critical_shortage: 0.30
+    shortage: 0.15
+    balanced_upper: 0.15
+    balanced_lower: -0.15
+    oversupply: -0.30
+    saturation_risk: -0.30
+  emerging_growth_pct: 0.25
+  max_capacity_recommendation_pct: 0.35
+
+confidence:
+  high_mape: 10.0
+  medium_mape: 20.0
+  min_completeness_high: 0.90
+
+simulator:
+  avg_centre_seats: 120
+  default_course_lag_months: 6
+
+scenario_pins:
+  pune_cnc:
+    state: "Maharashtra"
+    district: "Pune"
+    sector: "Manufacturing"
+    occupation: "CNC Operator"
+    nco_code: "7223.01"
+    demand_growth_pct: 18.0
+    supply_coverage_pct: 72.0
+    expected_class: "Critical Shortage"
+
+  mumbai_retail:
+    state: "Maharashtra"
+    district: "Mumbai"
+    sector: "Services & Retail"
+    occupation: "Retail Sales Associate"
+    nco_code: "5223.01"
+    demand_growth_pct: 2.0
+    supply_growth_pct: 22.0
+    expected_class: "Saturation Risk"
+
+  gujarat_solar:
+    state: "Gujarat"
+    district: "Ahmedabad"
+    sector: "Green Energy & Electronics"
+    occupation: "Solar PV Technician"
+    nco_code: "7411.02"
+    demand_growth_pct: 41.0
+    supply_growth_pct: 12.0
+    expected_class: "Emerging Shortage"
+
+  bengaluru_healthcare:
+    state: "Karnataka"
+    district: "Bengaluru"
+    sector: "Healthcare & Life Sciences"
+    occupation: "Healthcare Assistant"
+    nco_code: "5321.01"
+    demand_growth_pct: 8.0
+    supply_growth_pct: 7.0
+    expected_class: "Balanced"

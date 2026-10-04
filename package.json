@@ -1,0 +1,16 @@
+{
+  "name": "skill-sutra-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "PYTHONPATH=backend ./backend/venv/bin/python backend/scripts/seed_demo_data.py && PYTHONPATH=backend ./backend/venv/bin/python backend/scripts/compute_indices.py && PYTHONPATH=backend ./backend/venv/bin/python backend/scripts/train_forecasts.py && PYTHONPATH=backend ./backend/venv/bin/python backend/scripts/generate_alerts.py",
+    "test:backend": "PYTHONPATH=backend ./backend/venv/bin/python -m pytest backend/tests/test_backend.py -v",
+    "build:frontend": "npm --prefix frontend run build",
+    "dev:backend": "PYTHONPATH=backend ./backend/venv/bin/uvicorn main:app --reload --port 8000",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "npx concurrently -k -p \"[{name}]\" -c \"cyan,blue\" -n \"BACKEND,FRONTEND\" \"npm run dev:backend\" \"npm run dev:frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}
